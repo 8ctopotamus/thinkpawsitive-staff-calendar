@@ -1,9 +1,12 @@
 # Thinkpawsitive Staff Calendar
 
-A calendar view that shows the following booking types to staff:
-* All swimming sessions
-* All Treadmill sessions
-* All Turf sessions
-* All Mat sessions
-* All Nail Trims
-* All Self Serve Bath Washes
+A calendar view that displays the following booking types to staff:
+* Swimming sessions
+* Treadmill sessions
+* Turf sessions
+* Mat sessions
+* Nail Trims
+* Self Serve Bath Washes
+* Weave pole
+
+You can display the calendar on any page using the shortcode `[thinkpawsitive-staff-calendar]`.
