@@ -39,7 +39,9 @@
 
 /* Spinner */
 .pixel-spinner {
-  margin: 0 auto;
+  margin: auto;
+  position: absolute;
+  z-index: 10;
 }
 
 .pixel-spinner, .pixel-spinner * {
@@ -98,14 +100,23 @@
 }
 
 /* Calendar */
+#thinkpawsitive-calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(84,49,126, .15);
+}
+
 #thinkpawsitive-staff-calendar {
   max-width: 900px;
   margin: 0 auto;
 }
 
+.fc-event {
+  border-color: transparent;
+}
 .fc-event:hover {
   cursor: pointer;
-  border-color: transparent;
 }
 
 .thinkpawsitive-modal {
