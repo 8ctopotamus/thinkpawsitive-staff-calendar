@@ -1,21 +1,25 @@
 @keyframes fadeInUp {
   from {
-    transform: translate3d(0,40px,0)
+    -webkit-transform: translate3d(0,40px,0);
+            transform: translate3d(0,40px,0)
   }
 
   to {
-    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
     opacity: 1
   }
 }
 
 @-webkit-keyframes fadeInUp {
   from {
-    transform: translate3d(0,40px,0)
+    -webkit-transform: translate3d(0,40px,0);
+            transform: translate3d(0,40px,0)
   }
 
   to {
-    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
     opacity: 1
   }
 }
@@ -45,16 +49,26 @@
 }
 
 .pixel-spinner, .pixel-spinner * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .pixel-spinner {
   height: 70px;
   width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pixel-spinner .pixel-spinner-inner {
@@ -62,7 +76,7 @@
   height: calc(70px / 7);
   background-color: #54317e;
   color: #54317e;
-  box-shadow: 15px 15px  0 0,
+  -webkit-box-shadow: 15px 15px  0 0,
               -15px -15px  0 0,
               15px -15px  0 0,
               -15px 15px  0 0,
@@ -70,12 +84,29 @@
               15px 0  0 0,
               -15px 0  0 0,
               0 -15px 0 0;
-  animation: pixel-spinner-animation 2000ms linear infinite;
+          box-shadow: 15px 15px  0 0,
+              -15px -15px  0 0,
+              15px -15px  0 0,
+              -15px 15px  0 0,
+              0 15px  0 0,
+              15px 0  0 0,
+              -15px 0  0 0,
+              0 -15px 0 0;
+  -webkit-animation: pixel-spinner-animation 2000ms linear infinite;
+          animation: pixel-spinner-animation 2000ms linear infinite;
 }
 
-@keyframes pixel-spinner-animation {
+@-webkit-keyframes pixel-spinner-animation {
   50% {
-    box-shadow: 20px 20px 0px 0px,
+    -webkit-box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+            box-shadow: 20px 20px 0px 0px,
                 -20px -20px 0px 0px,
                 20px -20px 0px 0px,
                 -20px 20px 0px 0px,
@@ -85,7 +116,15 @@
                 0px -10px 0px 0px;
   }
   75% {
-    box-shadow: 20px 20px 0px 0px,
+    -webkit-box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+            box-shadow: 20px 20px 0px 0px,
                 -20px -20px 0px 0px,
                 20px -20px 0px 0px,
                 -20px 20px 0px 0px,
@@ -95,15 +134,65 @@
                 0px -10px 0px 0px;
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes pixel-spinner-animation {
+  50% {
+    -webkit-box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+            box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+  }
+  75% {
+    -webkit-box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+            box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 /* Calendar */
 #thinkpawsitive-calendar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: rgba(84,49,126, .15);
 }
 
@@ -130,7 +219,8 @@
   overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
-  box-shadow: 0px 4px 12px rgba(0,0,0,.5);
+  -webkit-box-shadow: 0px 4px 12px rgba(0,0,0,.5);
+          box-shadow: 0px 4px 12px rgba(0,0,0,.5);
 }
 
 .thinkpawsitive-modal-content {
