@@ -23,12 +23,12 @@ function thinkpawsitive_staff_calendar_scripts_styles() {
 add_action('wp_enqueue_scripts', 'thinkpawsitive_staff_calendar_scripts_styles');
 
 $cats = array(
+  51 => ['label' => 'Bath', 'class' => 'bath'],
   32 => ['label' => 'Swim', 'class' => 'swim'],
-  35 => ['label' => 'Water Treadmill', 'class' => 'treadmill'],
   46 => ['label' => 'Turf Mat', 'class' => 'turf'],
   47 => ['label' => 'Mat Rental', 'class' => 'mat'],
   50 => ['label' => 'Nail Service', 'class' => 'nails'],
-  51 => ['label' => 'Bath', 'class' => 'bath'],
+  35 => ['label' => 'Water Treadmill', 'class' => 'treadmill'],
   48 => ['label' => 'Weave Pole Rental', 'class' => 'weave'],
 );
 
@@ -42,23 +42,13 @@ function thinkpawsitive_staff_cal_func( $atts ) {
 
   global $cats;
 
-  if (isset($_GET['date'])) {
-    $moStart = strtotime("first day of" . $_GET['date']);
-    $moEnd = strtotime("last day of" . $_GET['date']);
-  } else {
-    $moStart = strtotime("first day of this month");
-    $moEnd = strtotime("last day of this month");
-  }
+  $moStart = strtotime("first day of this month");
 
   $WCBookings = new WP_Query(array(
     'post_type' => 'wc_booking',
     'post_status' => array('confirmed', 'complete', 'paid', 'processing'),
     'posts_per_page' => -1,
-    // 'date_query' => array(
-    //   'after' => date("Y-n-j", $moStart),
-    //   'before' => date("Y-n-j", $moEnd),
-    //   'inclusive' => true,
-    // ),
+    'after' => date("Y-n-j", $moStart),
   ));
 
   $bookings = [];
@@ -78,9 +68,9 @@ function thinkpawsitive_staff_cal_func( $atts ) {
             'start' => $booking->get_start_date(),
             'end' => $booking->get_end_date(),
             'className' => $cats[$prodCat]['class'],
+            'category' => $cats[$prodCat]['label'],
             'phone' => get_user_meta( $booking->get_customer()->user_id, 'billing_phone', true ),
           );
-          continue;
         endif;
       endforeach;
     endwhile;
@@ -91,14 +81,22 @@ function thinkpawsitive_staff_cal_func( $atts ) {
 
   // booking data
   $html = '<script>';
-  $html .= 'const tp_bookings = ' . json_encode($bookings);
+    $html .= 'const tp_bookings = ' . json_encode($bookings);
   $html .= '</script>';
+
+  // loading
+  $html .= '<div id="loading" class="pixel-spinner">';
+    $html .= '<div class="pixel-spinner-inner"></div>';
+  $html .= '</div>';
+
   // modal
   $html .= '<div id="thinkpawsitive-modal" class="modal">';
-  $html .= '<div class="thinkpawsitive-modal-content">';
-  $html .= '<span class="close">&times;</span>';
-  $html .= '<div id="thinkpawsitive-booking-details"></div>';
-  $html .= '</div></div>';
+    $html .= '<div class="thinkpawsitive-modal-content animated animatedFadeInUp fadeInUp">';
+      $html .= '<span class="close">&times;</span>';
+      $html .= '<div id="thinkpawsitive-booking-details"></div>';
+    $html .= '</div>';
+  $html .= '</div>';
+
   // calendar
 	$html .= '<div id="thinkpawsitive-staff-calendar"></div>';
   return $html;

@@ -1,64 +1,209 @@
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0,40px,0)
+  }
 
-
-.swim {
-  background: blue;
-}
-.treadmill {
-background: green;
-}
-.turf {
-background: purple;
-}
-.mat {
-background: gold;
-}
-.nails {
-background: royalblue;
-}
-.bath {
-  background: orchid;
-}
-.weave {
-background: gray;
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+  }
 }
 
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0,40px,0)
+  }
 
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+  }
+}
+
+.animated {
+  animation-duration: .45s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: .45s;
+  -webkit-animation-fill-mode: both;
+}
+
+.animatedFadeInUp {
+  opacity: 0;
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+/* Spinner */
+.pixel-spinner {
+  margin: 0 auto;
+}
+
+.pixel-spinner, .pixel-spinner * {
+  box-sizing: border-box;
+}
+
+.pixel-spinner {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pixel-spinner .pixel-spinner-inner {
+  width: calc(70px / 7);
+  height: calc(70px / 7);
+  background-color: #54317e;
+  color: #54317e;
+  box-shadow: 15px 15px  0 0,
+              -15px -15px  0 0,
+              15px -15px  0 0,
+              -15px 15px  0 0,
+              0 15px  0 0,
+              15px 0  0 0,
+              -15px 0  0 0,
+              0 -15px 0 0;
+  animation: pixel-spinner-animation 2000ms linear infinite;
+}
+
+@keyframes pixel-spinner-animation {
+  50% {
+    box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+  }
+  75% {
+    box-shadow: 20px 20px 0px 0px,
+                -20px -20px 0px 0px,
+                20px -20px 0px 0px,
+                -20px 20px 0px 0px,
+                0px 10px 0px 0px,
+                10px 0px 0px 0px,
+                -10px 0px 0px 0px,
+                0px -10px 0px 0px;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Calendar */
 #thinkpawsitive-staff-calendar {
   max-width: 900px;
   margin: 0 auto;
 }
 
+.fc-event:hover {
+  cursor: pointer;
+  border-color: transparent;
+}
+
 .thinkpawsitive-modal {
- display: none;
- position: fixed;
- z-index: 1;
- left: 0;
- top: 0;
- width: 100%;
- height: 100%;
- overflow: auto;
- background-color: rgb(0,0,0);
- background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  box-shadow: 0px 4px 12px rgba(0,0,0,.5);
 }
 
 .thinkpawsitive-modal-content {
- background-color: #fefefe;
- margin: 15% auto;
- padding: 20px;
- border: 1px solid #888;
- width: 80%;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.thinkpawsitive-modal-content h3 {
+  margin-top: 0;
+}
+
+.start-end-times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+}
+
+.start-end-times > * {
+  margin-right: 32px;
 }
 
 .close {
- color: #aaa;
- float: right;
- font-size: 28px;
- font-weight: bold;
+  color: #888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
- color: black;
- text-decoration: none;
- cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.swim {
+   background: #39aea9;
+}
+.treadmill {
+  background: #27363b;
+}
+.turf {
+  background: #99b998;
+}
+.mat {
+  background: #ef4666;
+}
+.nails {
+  background: #efca58;
+}
+.bath {
+  background: #345d7e;
+}
+.weave {
+  background: #e27b47;
+}
+
+.swim--text {
+  color: #39aea9;
+}
+.treadmill--text {
+  color: #27363b;
+}
+.turf--text {
+  color: #99b998;
+}
+.mat--text {
+  color: #ef4666;
+}
+.nails--text {
+  color: #efca58;
+}
+.bath--text {
+  color: #345d7e;
+}
+.weave--text {
+  color: #e27b47;
 }
